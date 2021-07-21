@@ -198,9 +198,9 @@ class OnlineNonDominatedGeneticAlgorithm(Algorithm):
                                         n_min_infeas_survive=self.min_infeas_pop_size)
         
         self.evaluate_population_in_original_objectives(self.pop)
-        current_hv = self.get_hypervolume(self.pop)
+        #current_hv = self.get_hypervolume(self.pop)
         current_igd = self.get_igd(self.pop)
-        self.hvs.append(current_hv)
+        #self.hvs.append(current_hv)
         self.igds.append(current_igd)
 
         self.current_generation += 1

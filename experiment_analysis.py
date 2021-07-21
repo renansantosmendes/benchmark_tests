@@ -8,7 +8,7 @@ from pymoo.model.population import Population, pop_from_array_or_individual
 
 problem = 'DTLZ2'
 original_dimension = 5
-reduced_dimension = 4
+reduced_dimension = 2
 interval_of_aggregations = 1
 save_data = True
 use_normalization=True

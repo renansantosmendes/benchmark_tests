@@ -140,7 +140,7 @@ class OfflineNonDominatedGeneticAlgorithm(Algorithm):
         read_pop = self.get_initial_population_number(self.seed)
         self.evaluator.eval(self.problem, read_pop, algorithm=self)
         self.pop, self.off = read_pop, read_pop
-        current_hv = self.get_hypervolume(self.pop)
+        #current_hv = self.get_hypervolume(self.pop)
         current_igd = self.get_igd(self.pop)
         self.hvs.append(current_hv)
         self.igds.append(current_igd)
@@ -195,7 +195,7 @@ class OfflineNonDominatedGeneticAlgorithm(Algorithm):
                                         n_min_infeas_survive=self.min_infeas_pop_size)
         
         self.evaluate_population_in_original_objectives(self.pop)
-        current_hv = self.get_hypervolume(self.pop)
+        #current_hv = self.get_hypervolume(self.pop)
         current_igd = self.get_igd(self.pop)
         self.hvs.append(current_hv)
         self.igds.append(current_igd)
@@ -235,7 +235,7 @@ class OfflineNonDominatedGeneticAlgorithm(Algorithm):
     def _get_igd(self, population):
         return self.igd_plus.calc(population.get('F'))
     
-    def get_aggregation_string(self, transformation_matrix):
+    def     (self, transformation_matrix):
         aggregation = []
         for i in range(len(transformation_matrix)):
             line = ''

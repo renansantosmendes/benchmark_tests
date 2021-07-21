@@ -27,7 +27,7 @@ def generate_max_min(problem, reference_directions, number_of_executions):
     populations = np.concatenate([generate_transformation_matrix(1, problem, reference_directions) for i in range(number_of_executions)])
     return populations.min(axis=0), populations.max(axis=0)
 
-original_dimension = 8
+original_dimension = 10
 reduced_dimension = 2
 interval_of_aggregations = 1
 save_data = True
