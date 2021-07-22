@@ -142,7 +142,7 @@ class OfflineNonDominatedGeneticAlgorithm(Algorithm):
         self.pop, self.off = read_pop, read_pop
         #current_hv = self.get_hypervolume(self.pop)
         current_igd = self.get_igd(self.pop)
-        self.hvs.append(current_hv)
+        #self.hvs.append(current_hv)
         self.igds.append(current_igd)
     
     def generate_max_min(self, problem):
@@ -197,7 +197,7 @@ class OfflineNonDominatedGeneticAlgorithm(Algorithm):
         self.evaluate_population_in_original_objectives(self.pop)
         #current_hv = self.get_hypervolume(self.pop)
         current_igd = self.get_igd(self.pop)
-        self.hvs.append(current_hv)
+        #self.hvs.append(current_hv)
         self.igds.append(current_igd)
 
         self.current_generation += 1
@@ -235,7 +235,7 @@ class OfflineNonDominatedGeneticAlgorithm(Algorithm):
     def _get_igd(self, population):
         return self.igd_plus.calc(population.get('F'))
     
-    def     (self, transformation_matrix):
+    def get_aggregation_string(self, transformation_matrix):
         aggregation = []
         for i in range(len(transformation_matrix)):
             line = ''

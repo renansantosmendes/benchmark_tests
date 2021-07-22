@@ -27,7 +27,7 @@ def generate_max_min(problem, reference_directions, number_of_executions):
     populations = np.concatenate([generate_transformation_matrix(1, problem, reference_directions) for i in range(number_of_executions)])
     return populations.min(axis=0), populations.max(axis=0)
 
-original_dimension = 10
+original_dimension = 5
 reduced_dimension = 2
 interval_of_aggregations = 1
 save_data = True
@@ -62,10 +62,10 @@ experiment = ExperimentOnlineClusterNSGA3(ref_dirs=reference_directions,
     method='pearson')
 
 print('Online Pearson NSGA-III Experiment Run')
-experiment.run()
-experiment.show_mean_convergence('igd_convergence.txt')
-experiment.show_mean_convergence('hv_convergence.txt')
-experiment.show_heat_map()
+# experiment.run()
+# experiment.show_mean_convergence('igd_convergence.txt')
+# experiment.show_mean_convergence('hv_convergence.txt')
+# experiment.show_heat_map()
 
 experiment = ExperimentOnlineClusterNSGA3(ref_dirs=reference_directions,
     min_max_values=normalization_point,
@@ -86,10 +86,10 @@ experiment = ExperimentOnlineClusterNSGA3(ref_dirs=reference_directions,
     method='kendall')
 
 print('Online Kendall NSGA-III Experiment Run')
-experiment.run()
-experiment.show_mean_convergence('igd_convergence.txt')
-experiment.show_mean_convergence('hv_convergence.txt')
-experiment.show_heat_map()
+# experiment.run()
+# experiment.show_mean_convergence('igd_convergence.txt')
+# experiment.show_mean_convergence('hv_convergence.txt')
+# experiment.show_heat_map()
 
 experiment = ExperimentNSGA3(ref_dirs=reference_directions,
     min_max_values=normalization_point,
@@ -108,9 +108,9 @@ experiment = ExperimentNSGA3(ref_dirs=reference_directions,
     use_different_seeds=use_different_seeds)
 
 print('NSGA-III Experiment Run')
-experiment.run()
-experiment.show_mean_convergence('igd_convergence.txt')
-experiment.show_mean_convergence('hv_convergence.txt')
+# experiment.run()
+# experiment.show_mean_convergence('igd_convergence.txt')
+# experiment.show_mean_convergence('hv_convergence.txt')
 
 experiment = ExperimentOnlineClusterNSGA3(ref_dirs=reference_directions,
     min_max_values=normalization_point,
@@ -131,10 +131,10 @@ experiment = ExperimentOnlineClusterNSGA3(ref_dirs=reference_directions,
     method='pearson')
 
 print('Random Cluster Pearson NSGA-III Experiment Run')
-experiment.run()
-experiment.show_mean_convergence('igd_convergence.txt')
-experiment.show_mean_convergence('hv_convergence.txt')
-experiment.show_heat_map()
+# experiment.run()
+# experiment.show_mean_convergence('igd_convergence.txt')
+# experiment.show_mean_convergence('hv_convergence.txt')
+# experiment.show_heat_map()
 
 experiment = ExperimentOnlineClusterNSGA3(ref_dirs=reference_directions,
     min_max_values=normalization_point,
@@ -155,10 +155,10 @@ experiment = ExperimentOnlineClusterNSGA3(ref_dirs=reference_directions,
     method='kendall')
 
 print('Random Cluster Kendall NSGA-III Experiment Run')
-experiment.run()
-experiment.show_mean_convergence('igd_convergence.txt')
-experiment.show_mean_convergence('hv_convergence.txt')
-experiment.show_heat_map()
+# experiment.run()
+# experiment.show_mean_convergence('igd_convergence.txt')
+# experiment.show_mean_convergence('hv_convergence.txt')
+# experiment.show_heat_map()
 
 experiment = ExperimentOfflineClusterNSGA3(ref_dirs=reference_directions,
     min_max_values=normalization_point,
