@@ -159,6 +159,7 @@ class OnlineNonDominatedGeneticAlgorithm(Algorithm):
         return F_min, F_max
 
     def _next(self):
+        
         self.evaluate_population_in_original_objectives(self.pop)
 
         if self.save_data:
@@ -167,13 +168,12 @@ class OnlineNonDominatedGeneticAlgorithm(Algorithm):
         self.apply_cluster_reduction()
         self.reduce_population(self.pop, self.transformation_matrix)
         self.aggregations.append(self.get_aggregation_string(self.transformation_matrix))
-
         print(self.get_aggregation_string(self.transformation_matrix))
 
         # do the mating using the current population
         self.off = self.mating.do(self.problem, self.pop, self.n_offsprings, algorithm=self)
         self.off.set("n_gen", self.n_gen)
-
+        
         # if the mating could not generate any new offspring (duplicate elimination might make that happen)
         if len(self.off) == 0:
             self.termination.force_termination = True
@@ -183,10 +183,10 @@ class OnlineNonDominatedGeneticAlgorithm(Algorithm):
         elif len(self.off) < self.n_offsprings:
             if self.verbose:
                 print("WARNING: Mating could not produce the required number of (unique) offsprings!")
-
+        
         # evaluate the offspring
         self.evaluator.eval(self.problem, self.off, algorithm=self)
-
+        
         self.reduce_population(self.off, self.transformation_matrix)
         
         # merge the offsprings with the current population
@@ -200,6 +200,7 @@ class OnlineNonDominatedGeneticAlgorithm(Algorithm):
         self.evaluate_population_in_original_objectives(self.pop)
         #current_hv = self.get_hypervolume(self.pop)
         current_igd = self.get_igd(self.pop)
+        self.evaluate_population_in_original_objectives(self.pop)
         #self.hvs.append(current_hv)
         self.igds.append(current_igd)
 
